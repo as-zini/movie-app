@@ -46,7 +46,6 @@ export default class TheHeader extends Component{
         </ul>
       </nav>
       <a href="#/about" class="user">
-        <img src="./zini_logo.png" alt="User">
       </a>
     `
   }

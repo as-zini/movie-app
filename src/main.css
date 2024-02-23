@@ -160,6 +160,7 @@ header .user{
 header .user:hover{
   transform: scale(1.2);
 }
+
 header .user img{
   width: 100%;
 }
