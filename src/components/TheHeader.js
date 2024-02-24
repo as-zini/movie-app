@@ -45,8 +45,7 @@ export default class TheHeader extends Component{
           }).join('')}
         </ul>
       </nav>
-      <a href="#/about" class="user">
-      </a>
+      <a href="#/about" class="user"></a>
     `
   }
 }
