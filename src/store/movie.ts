@@ -1,17 +1,69 @@
 import { Store } from "../core/fundamental";
 
-const store = new Store({
+export interface SimpleMovie {
+  Title: string
+  Year: string
+  imdbID: string
+  Type: string
+  Poster: string
+}
+
+interface DetailedMovie {
+  Title: string
+  Year: string
+  Rated: string
+  Released: string
+  Runtime: string
+  Genre: string
+  Director: string
+  Writer: string
+  Actors: string
+  Plot: string
+  Language: string
+  Country: string
+  Awards: string
+  Poster: string
+  Ratings: Rating[]
+  Metascore: string
+  imdbRating: string
+  imdbVotes: string
+  imdbID: string
+  Type: string
+  DVD: string
+  BoxOffice: string
+  Production: string
+  Website: string
+  Response: string
+}
+
+interface Rating {
+  Source: string
+  Value: string
+}
+
+
+interface State {
+  searchText: string
+  page: number
+  pageMax: number
+  movies: SimpleMovie[]
+  movie: DetailedMovie
+  loading: boolean
+  message: string
+}
+
+const store = new Store<State>({
   searchText: '',
   page: 1,
   pageMax: 1,
   movies: [], //영화들을 넣음
-  movie: {}, //객체속에 영화 상세정보를 가져와서 넣을것임
+  movie: {} as DetailedMovie, //객체속에 영화 상세정보를 가져와서 넣을것임
   loading: false,
   message: 'Search for th movie title!'
 })
 
 export default store
-export const searchMovies = async page => {
+export const searchMovies = async (page: number) => {
   store.state.loading = true
   store.state.page = page
   if (page === 1){
@@ -44,7 +96,7 @@ export const searchMovies = async page => {
   } 
 }
 
-export const getMovieDetails = async id => {
+export const getMovieDetails = async (id:string) => {
   try{
     const res = await fetch('/api/movie',{
       method: 'POST',
