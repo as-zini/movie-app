@@ -2,6 +2,7 @@
   "name": "moive_app",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
     "dev": "parcel ./index.html",
     "build": "parcel build ./index.html",
@@ -11,8 +12,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.11.20",
+    "@types/node-fetch": "^2.6.11",
     "dotenv": "^16.4.5",
     "parcel": "^2.11.0",
+    "typescript": "^5.3.3",
     "vercel": "^33.5.2"
   },
   "dependencies": {
